@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Pica-Pau</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="shortcut icon" href="imagens/icone.png" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <h1 id="titulo">Pica-Pau</h1>
+    <img id="primeira-imagem" src="imagens/pica-pau.png" width="200" />
+    <h2 id="primeiro-texto">Validar CPF</h2>
+    <input
+      id="cpf"
+      type="text"
+      placeholder="CPF"
+      maxlength="14"
+      onkeyup="mascara_cpf()"
+    />
+    <button onclick="validar()">Validar</button>
+    <p id="validar">CPF válido? <span id="result"></span></p>
+  </body>
+</html>

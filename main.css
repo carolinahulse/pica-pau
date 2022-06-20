@@ -1,0 +1,50 @@
+body {
+  text-align: center;
+  background-color: lightcyan;
+}
+
+#titulo {
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: red;
+  font-size: 37px;
+}
+
+#primeiro-texto {
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding-top: 180px;
+  color: red;
+}
+
+button {
+  font-size: 19px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  color: white;
+  background-color: red;
+  border-radius: 10px;
+}
+
+button:hover {
+  background: blue;
+}
+
+#primeira-imagem {
+  padding-top: 150px;
+}
+
+#cpf {
+  padding: 4px 2px;
+  font-size: 15px;
+}
+
+#validar {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: red;
+  font-size: 20px;
+}
