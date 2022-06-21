@@ -1,22 +1,31 @@
-body {
+.conteudo {
   text-align: center;
-  background-color: lightcyan;
 }
 
-#titulo {
+.titulo {
   text-align: center;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   color: red;
-  font-size: 37px;
+  font-size: 23px;
 }
 
-#primeiro-texto {
+.primeiro-texto {
   text-align: center;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   padding-top: 180px;
   color: red;
+}
+
+.primeira-imagem {
+  padding-top: 100px;
+}
+
+input {
+  border-radius: 10px;
+  padding: 6px;
+  font-size: 13px;
 }
 
 button {
@@ -26,25 +35,10 @@ button {
   cursor: pointer;
   color: white;
   background-color: red;
-  border-radius: 10px;
+  border-radius: 12px;
+  padding: 2px;
 }
 
 button:hover {
   background: blue;
-}
-
-#primeira-imagem {
-  padding-top: 150px;
-}
-
-#cpf {
-  padding: 4px 2px;
-  font-size: 15px;
-}
-
-#validar {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  color: red;
-  font-size: 20px;
 }
