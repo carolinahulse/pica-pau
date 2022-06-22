@@ -1,0 +1,23 @@
+.conteudo {
+  text-align: center;
+  padding-top: 4px;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  li {
+    list-style: none;
+    padding: 2px 17px;
+    a {
+      text-decoration: none;
+      color: rgb(57, 57, 179);
+    }
+    a:hover {
+      color: blue;
+    }
+  }
+}
