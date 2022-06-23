@@ -1,7 +1,6 @@
 import { ProdutoModule } from './produto/produto.module';
 import { FarmaceuticoModule } from './farmaceutico/farmaceutico.module';
 import { FornecedorModule } from './fornecedor/fornecedor.module';
-import { FornecedorComponent } from './fornecedor/fornecedor.component';
 import { ClienteModule } from './cliente/cliente.module';
 import { MenuModule } from './menu/menu.module';
 import { SobreModule } from './sobre/sobre.module';

@@ -1,3 +1,7 @@
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { ClienteModel } from './../model/cliente-model';
+import { Cliente } from './../domain/cliente';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -12,16 +16,39 @@ import {
   styleUrls: ['./cliente.component.scss'],
 })
 export class ClienteComponent implements OnInit {
-  formCliente: FormGroup = this.formBuilder.group({
+  list: Cliente[] = [];
+
+  form: FormGroup = this.formBuilder.group({
     nome: new FormControl(null, [Validators.required, Validators.minLength(2)]),
     cpf: new FormControl(null, [Validators.required, Validators.minLength(11)]),
     email: new FormControl(null, [Validators.required, Validators.email]),
     niver: new FormControl(null, [Validators.required]),
   });
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.get().subscribe((domains: Cliente[]) => {
+      this.list = domains;
+    });
+  }
 
-  cadastrar(): void {}
+  cadastrar(): void {
+    const clieteModel: ClienteModel = this.form.getRawValue();
+    this.post(clieteModel).subscribe((domain: Cliente) => {
+      if (domain.id) {
+        this.list.push(domain);
+      }
+    });
+  }
+
+  private post(model: ClienteModel): Observable<Cliente> {
+    const url = 'http://localhost:8080/cliente/cadastrar';
+    return this.http.post<Cliente>(url, model);
+  }
+
+  private get(): Observable<Cliente[]> {
+    const url = 'http://localhost:8080/cliente/consultar';
+    return this.http.get<Cliente[]>(url);
+  }
 }
