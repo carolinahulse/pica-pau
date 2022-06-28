@@ -15,17 +15,27 @@
   <br /><br />
   <button type="submit" [disabled]="!form.valid">Cadastrar</button>
 </form>
-<table>
+<br /><br /><br />
+<table class="tabela">
   <tr>
-    <td>ID</td>
-    <td>Nome</td>
-    <td>Data de Nascimento</td>
-    <td>CPF</td>
-    <td>E-mail</td>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>Data de Nascimento</th>
+    <th>Idade</th>
+    <th>CPF Válido</th>
+    <th>CPF</th>
+    <th>E-mail</th>
   </tr>
   <tr *ngFor="let cliente of list">
-    <td>{{ cliente.id }}</td>
     <td>{{ cliente.nome }}</td>
     <td>{{ cliente.niver | date: "dd/MM/yyyy" }}</td>
+    <td>{{ cliente.idade }}</td>
+    <td>{{ cliente.documento }}</td>
+    <td>{{ cliente.documentoValido }}</td>
+    <td>{{ cliente.email }}</td>
+    <td>
+      <button (click)="editar(cliente)">Editar</button>
+      <button (click)="remover(cliente)">Remover</button>
+    </td>
   </tr>
 </table>

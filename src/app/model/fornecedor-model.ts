@@ -1,5 +1,5 @@
 export interface FornecedorModel {
   nome: string;
-  niver: Date;
+  niver: string;
   cnpj: string;
 }

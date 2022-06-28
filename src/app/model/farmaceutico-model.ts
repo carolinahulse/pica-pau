@@ -1,5 +1,5 @@
 export interface FarmaceuticoModel {
   nome: string;
-  niver: Date;
+  niver: string;
   cpf: string;
 }

@@ -1,5 +1,4 @@
-export interface Produto {
-  id: string;
+export interface ProdutoModel {
   nome: string;
   valor: number;
 }
