@@ -1,7 +1,5 @@
-import { ClienteService } from './../service/cliente.service';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { ClienteModel } from './../model/cliente-model';
+import { ClienteService } from './../service/cliente.service';
 import { Cliente } from './../domain/cliente';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -17,7 +15,7 @@ import {
   styleUrls: ['./cliente.component.scss'],
 })
 export class ClienteComponent implements OnInit {
-  list: Cliente[] = [];
+  list: ClienteModel[] = [];
 
   form: FormGroup = this.formBuilder.group({
     nome: new FormControl(null, [Validators.required, Validators.minLength(2)]),
@@ -36,18 +34,18 @@ export class ClienteComponent implements OnInit {
   }
 
   private carregaTabela(): void {
-    this.clienteService.consultar().subscribe((domains: Cliente[]) => {
-      this.list = domains;
+    this.clienteService.consultar().subscribe((domain: ClienteModel[]) => {
+      this.list = domain;
     });
   }
 
   cadastrar(): void {
     const id = this.form.controls['id'].value;
-    const clieteModel: ClienteModel = this.form.getRawValue();
+    const clienteModel: ClienteModel = this.form.getRawValue();
     if (id) {
       this.clienteService
-        .alterar(id, clieteModel)
-        .subscribe((domain: Cliente) => {
+        .alterar(clienteModel)
+        .subscribe((domain: ClienteModel) => {
           if (domain.id) {
             this.carregaTabela();
             this.form.reset();
@@ -55,8 +53,8 @@ export class ClienteComponent implements OnInit {
         });
     } else {
       this.clienteService
-        .cadastrar(clieteModel)
-        .subscribe((domain: Cliente) => {
+        .cadastrar(clienteModel)
+        .subscribe((domain: ClienteModel) => {
           if (domain.id) {
             this.list.push(domain);
             this.form.reset();
@@ -65,16 +63,16 @@ export class ClienteComponent implements OnInit {
     }
   }
 
-  editar(cliente: Cliente): void {
+  editar(cliente: ClienteModel): void {
     this.form.controls['id'].setValue(cliente.id);
     this.form.controls['nome'].setValue(cliente.nome);
-    this.form.controls['cpf'].setValue(cliente.documento);
+    this.form.controls['cpf'].setValue(cliente.cpf);
     this.form.controls['email'].setValue(cliente.email);
     this.form.controls['niver'].setValue(cliente.niver);
   }
 
   remover(cliente: Cliente): void {
-    this.clienteService.remover(cliente.id).subscribe((c: Cliente) => {
+    this.clienteService.remover(cliente.id).subscribe((c: ClienteModel) => {
       if (c.id) {
         this.carregaTabela();
       }
